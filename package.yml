@@ -1,0 +1,26 @@
+name: Request.Stocks
+
+current: 0.1.0
+
+web: "[github.com/eerne/Request.Stocks](http://github.com/eerne/Request.Stocks)"
+
+description: "Pull Stocks data from yahoo"
+
+authors: "[Enrique Erne](http://mild.ch)"
+
+license: "MIT License"
+
+copyright: "&copy; 2010, Enrique Erne"
+
+sources:
+  - "Source/Request.Stocks"
+  
+# Values for MooTools forge
+  
+author: tofu
+
+demo: http://jsfiddle.net/coming
+
+category: widgets
+
+tags: [request, stocks, yql, jsonp, widget]

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Request.Stocks</title>
+	<style>
+		#custom {
+			position: fixed;
+			right: 2em;
+			top: 0;
+		}
+	</style>
+	
+	<script src="mootools-core-1.3-full-nocompat.js"></script>
+	<script src="mootools-more-1.3.js"></script>
+	<script src="../Source/Request.Stocks.js"></script>
+	<script src="../Source/Request.Stocks.element.js"></script>
+	
+	<script>
+	window.addEvent('domready', function(){
+	
+		new Request.Stocks(['ABBN.VX', 'ATLN.VX', 'ADEN.VX', 'CSGN.VX', 'HOLN.VX', 'BAER.VX', 'LONN.VX', 'NESN.VX', 'NOVN.VX', 'CFR.VX', 'ROG.VX', 'SGSN.VX', 'UHR.VX', 'RUKN.VX', 'SCMN.VX', 'SYNN.VX', 'SYST.VX', 'RIGN.VX', 'UBSN.VX', 'ZURN.VX'], {
+			onComplete: function(yahoo){
+				var result = '';
+				Array.each(Array.from(yahoo.query.results.quote), function(quote){
+					result += '<h3>{Name}</h3><p>{Ask} ChangeinPercent: {ChangeinPercent} Change: {Change}</p>'.substitute(quote);
+				}, this);
+				
+				$('stocks').set('html', result);
+			},
+			onRequest: function(script){
+				$('stocks').set('text', 'Loading...');
+			}
+		}).send();
+		
+		// Request.Stocks.element.js
+		$('custom').loadStocks('^SSMI');
+		
+	});
+
+	</script>
+
+</head>
+<body>
+
+<h1>Request.Stocks</h1>
+<div id="stocks"></div>
+<div id="custom"></div>
+
+
+
+<p>github: <a href="http://github.com/eerne/Request.Stocks">github.com/eerne/Request.Stocks</a></p>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
+<meta>
+<sampleQuery>select * from yahoo.finance.quotes where symbol in ("YHOO","GOOG","MSFT")</sampleQuery>
+<author>Adrian Statescu</author>
+<description>Get Stock quotes with woeid</description>
+<documentationURL>http://www.yqlblog.net/blog/2009/06/02/getting-stock-information-with-yql-and-open-data-tables/</documentationURL>
+</meta>
+<bindings>
+<select itemPath="" produces="XML">
+<inputs>
+<key id="location" type="xs:string" paramType="variable" required="true" />
+<key id="unit" type="xs:string" paramType="variable" />
+
+</inputs>
+<execute><![CDATA[
+
+          default xml namespace ='http://where.yahooapis.com/v1/schema.rng';
+
+          var q = 'select woeid from geo.places(1) where text="' + location + '"';
+
+          var x = y.query(q);
+
+          var s = x.results;
+
+          var woeid = s..woeid;
+
+          var url = 'http://weather.yahooapis.com/forecastrss?w=' + woeid + '&u=' + unit;
+
+          var weather = y.rest(url).get().response;
+
+          response.object = <weather> {weather} </weather>; 
+
+]]></execute>
+</select>
+</bindings>
+</table>
