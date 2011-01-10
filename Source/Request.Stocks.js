@@ -23,6 +23,7 @@ Request.Stocks = new Class({
 	Extends: Request.JSONP, 
 
 	options: {
+		stocks: ['AAPL', 'GOOG', 'MSFT', 'YHOO'],
 		display: ['Name', 'Ask', 'Change', 'ChangeinPercent'],
 		sortBy: 'Name',
 		desc: false,
@@ -34,11 +35,12 @@ Request.Stocks = new Class({
 		}
 	}, 
 
-	initialize: function(quotes, options){
+	initialize: function(options){
+		this.setOptions(options);
 		var query = {
 			display: this.options.display.join(', '),
-			quotes: Array.from(quotes).map(function(item){
-					return '"' + item + '"';
+			quotes: Array.from(this.options.stocks).map(function(stock){
+					return '"' + stock + '"';
 				}).join(', '),
 			sortBy: this.options.sortBy,
 			desc: this.options.desc

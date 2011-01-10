@@ -19,7 +19,8 @@
 	<script>
 	window.addEvent('domready', function(){
 	
-		new Request.Stocks(['ABBN.VX', 'ATLN.VX', 'ADEN.VX', 'CSGN.VX', 'HOLN.VX', 'BAER.VX', 'LONN.VX', 'NESN.VX', 'NOVN.VX', 'CFR.VX', 'ROG.VX', 'SGSN.VX', 'UHR.VX', 'RUKN.VX', 'SCMN.VX', 'SYNN.VX', 'SYST.VX', 'RIGN.VX', 'UBSN.VX', 'ZURN.VX'], {
+		new Request.Stocks({
+			stocks: ['ABBN.VX', 'ATLN.VX', 'ADEN.VX', 'CSGN.VX', 'HOLN.VX', 'BAER.VX', 'LONN.VX', 'NESN.VX', 'NOVN.VX', 'CFR.VX', 'ROG.VX', 'SGSN.VX', 'UHR.VX', 'RUKN.VX', 'SCMN.VX', 'SYNN.VX', 'SYST.VX', 'RIGN.VX', 'UBSN.VX', 'ZURN.VX'],
 			onComplete: function(yahoo){
 				var result = '';
 				Array.each(Array.from(yahoo.query.results.quote), function(quote){
@@ -34,7 +35,9 @@
 		}).send();
 		
 		// Request.Stocks.element.js
-		$('custom').loadStocks('^SSMI');
+		$('custom').loadStocks({
+			stocks: '^SSMI'
+		});
 		
 	});
 

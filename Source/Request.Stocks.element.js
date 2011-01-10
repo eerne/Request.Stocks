@@ -20,15 +20,14 @@ provides: [Request.Stocks]
 
 Element.implement({
 
-	loadStocks: function(quote, options){
+	loadStocks: function(options){
 		var self = this;
-		new Request.Stocks(quote, {
+		new Request.Stocks(Object.merge({
 			onSuccess: function(yahoo){
 				var result = '';
 				Array.each(Array.from(yahoo.query.results.quote), function(quote){
-					result += '<h2>' + quote.Name + '</h2>';
-					result += '<p>' + quote.ChangeinPercent + '</p>';
-				});
+					result += '<h3>{Name}</h3><p>{Ask} ChangeinPercent: {ChangeinPercent} Change: {Change}</p>'.substitute(quote);
+				}, this);
 				           
 				self.set('html', result);
 			}, 
@@ -38,7 +37,7 @@ Element.implement({
 				}
 				self.set('text', 'Loading...');
 			}
-		}).send();
+		}, options)).send();
 		return this;
 	}
 	  
