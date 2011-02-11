@@ -6,7 +6,7 @@ web: "[github.com/eerne/Request.Stocks](http://github.com/eerne/Request.Stocks)"
 
 description: "Pull Stocks data from yahoo"
 
-authors: "[Enrique Erne](http://mild.ch)"
+authors: "[Enrique Erne](http://mild.ch/)"
 
 license: "MIT License"
 
@@ -19,7 +19,7 @@ sources:
   
 author: tofu
 
-demo: http://jsfiddle.net/coming
+demo: http://2011.mild.ch/projects/request-stocks.html
 
 category: widgets
 

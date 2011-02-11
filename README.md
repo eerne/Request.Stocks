@@ -32,7 +32,7 @@ How to use
 Demo
 ----
 
-http://2011.mild.ch/projects/request-stocks.html
+* [2011.mild.ch/projects/request-stocks.html](http://2011.mild.ch/projects/request-stocks.html)
 
 #### See Also:
 
