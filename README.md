@@ -12,13 +12,9 @@ How to use
 
 	var myStocks = new Request.Stocks(stocks, [options]);
 
-### Arguments:
-
-1. stocks - (*array*) of the stocks you want to display.
-2. options - (*object*, optional) See below.
-
 ### Options:
 
+* stocks - (*array*) all the titles to display, i.e. ['YHOO', 'AAPL', 'GOOG', 'MSFT']
 * sortBy - (*string*: defaults to 'Name') which of the display value the result should be sorted by.
 * desc - (*boolean*: defaults to false) whether the result shold be in descending order
 * baseURL - (*string*: defaults to 'http://query.yahooapis.com/v1/public/yql?q=')
@@ -34,7 +30,3 @@ Demo
 
 * [2011.mild.ch/projects/request-stocks.html](http://2011.mild.ch/projects/request-stocks.html)
 
-#### See Also:
-
-* [Request.JSONP](http://mootools.net/docs/more/Request/Request.JSONP)
-* [yqlblog.net/blog/2009/06/02/getting-stock-information-with-yql-and-open-data-tables/](http://www.yqlblog.net/blog/2009/06/02/getting-stock-information-with-yql-and-open-data-tables/)
