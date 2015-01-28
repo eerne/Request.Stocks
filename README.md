@@ -25,8 +25,10 @@ How to use
 
 * onComplete - (*function*, optional) fired when the data returns; Passes the JSON response object from the request.
 
-Demo
+Demos
 ----
 
+* [jsFiddle](http://jsfiddle.net/8dmzp2r6/)
 * [2011.mild.ch/projects/request-stocks.html](http://2011.mild.ch/projects/request-stocks.html)
+
 
